@@ -42,7 +42,7 @@ export default ({ category, seed, onGoBack }) => {
   };
 
   useEffect(() => {
-    if (!word) {
+    if (!word || typedWord.length > progress.length + 1) {
       return;
     }
 
