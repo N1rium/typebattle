@@ -1,10 +1,38 @@
 import React, { useState, useEffect, useRef } from 'react';
+import styled from 'styled-components';
 import { Button, ItemSelector } from '../../components';
 import { getCategories } from '../../wordbank/index';
 import { Game, Letter, NameContainer, Name, Version } from './style';
 
+const SeedSelector = styled.div`
+  text-align: center;
+  margin-top: 20px;
+`;
+
+const Title = styled.div`
+  font-size: 1em;
+  color: var(--yellow);
+`;
+
+const Input = styled.input.attrs(props => ({
+  type: 'text',
+}))`
+  text-align: center;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: #fff;
+  font-family: 'Bungee', cursive;
+  border-bottom: 1px solid #fff;
+  padding: 5px 10px;
+  font-size: 1.25em;
+  opacity: 1;
+  transition: all 0.25s ease-in-out;
+`;
+
 export default ({ onPlay }) => {
   const [category, setCategory] = useState('random');
+  const [seed, setSeed] = useState(Date.now());
   const categories = getCategories();
   const targetWord = 'Type Battle';
   const colors = ['var(--red)', 'var(--green)', 'var(--blue)', 'var(--yellow)'];
@@ -37,8 +65,14 @@ export default ({ onPlay }) => {
           ))}
         </Name>
       </NameContainer>
-      <ItemSelector title="category" items={categories} onChange={c => setCategory(c)}></ItemSelector>
-      <Button onClick={() => onPlay(category)}>Play</Button>
+      <div>
+        <ItemSelector title="category" items={categories} onChange={c => setCategory(c)}></ItemSelector>
+        <SeedSelector>
+          <Title>Seed</Title>
+          <Input value={seed} onChange={e => setSeed(e.target.value)} />
+        </SeedSelector>
+      </div>
+      <Button onClick={() => onPlay(category, seed)}>Play</Button>
       <Version>V 1.0</Version>
     </Game>
   );

@@ -4,7 +4,7 @@ import { getWordSequence } from '../../wordbank/index';
 import { Button, Radial } from '../../components';
 import { Container, ButtonContainer, WordContainer, Word, Remainder, Input, Score } from './style';
 
-export default ({ category, onGoBack }) => {
+export default ({ category, seed, onGoBack }) => {
   const [words, setWords] = useState([]);
   const [word, setWord] = useState('');
   const [startTime, setStartTime] = useState(null);
@@ -22,7 +22,7 @@ export default ({ category, onGoBack }) => {
     setScore(0);
     setRadialOptions({ progress: 100, timing: 0 });
     setStartTime(null);
-    const wordSequence = getWordSequence(category);
+    const wordSequence = getWordSequence(category, 50, seed);
     setWords(wordSequence);
     setWord(wordSequence[0]);
     setTypedWord('');
@@ -31,7 +31,6 @@ export default ({ category, onGoBack }) => {
 
   useEffect(() => {
     setup();
-    console.log(Gloot);
   }, []);
 
   const tryAgain = () => {

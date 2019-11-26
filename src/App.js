@@ -9,21 +9,23 @@ import 'babel-polyfill';
 export default () => {
   const [gameState, setGameState] = useState('menu');
   const [category, setCategory] = useState('all');
+  const [seed, setSeed] = useState('');
 
   useEffect(() => {
     console.log(Gloot);
     Gloot.onPlayMatch = () => play('dishes');
   }, []);
 
-  const play = category => {
+  const play = (category, seed) => {
     setCategory(category);
+    setSeed(seed);
     setGameState('game');
   };
 
   return (
     <ThemeWrapper>
-      {gameState === 'menu' && <Menu onPlay={category => play(category)} />}
-      {gameState === 'game' && <Home onGoBack={() => setGameState('menu')} category={category} />}
+      {gameState === 'menu' && <Menu onPlay={(category, seed) => play(category, seed)} />}
+      {gameState === 'game' && <Home onGoBack={() => setGameState('menu')} category={category} seed={seed} />}
     </ThemeWrapper>
   );
 };

@@ -5,7 +5,7 @@ import movies from './movies';
 import names from './names';
 import videogames from './videogames';
 
-const rng = new seedrandom('Gordon Freeman');
+let rng = new seedrandom('Gordon Freeman');
 const allWords = [...animals, ...dishes, ...movies, ...names, ...videogames];
 
 const map = {
@@ -19,7 +19,11 @@ const map = {
 
 export const getCategories = () => Object.keys(map);
 
-export const getWordSequence = (category = 'random', length = 50) => {
+export const getWordSequence = (category = 'random', length = 50, random = null) => {
+  if (random) {
+    console.warn('rng', random);
+    rng = new seedrandom(random);
+  }
   return shuffle(category === 'random' ? [...allWords] : map[category])
     .slice(0, length)
     .map(w => w.toLowerCase());
