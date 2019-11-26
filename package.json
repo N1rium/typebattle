@@ -1,0 +1,41 @@
+{
+  "name": "simon-says",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --env local",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf dist && webpack --mode production"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "html-loader": "^0.5.5",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-ga": "^2.7.0",
+    "seedrandom": "^3.0.5",
+    "styled-components": "^4.4.1",
+    "gloot-xr-sdk": "^1.0.23"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-regenerator": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/polyfill": "^7.6.0",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.6.3",
+    "@babel/runtime": "^7.6.3",
+    "babel-loader": "^8.0.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  }
+}
