@@ -20,6 +20,7 @@ const Input = styled.input.attrs(props => ({
   text-align: center;
   background: transparent;
   border: 0;
+  border-radius: 0;
   outline: 0;
   color: #fff;
   font-family: 'Bungee', cursive;
