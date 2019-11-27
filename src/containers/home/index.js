@@ -49,8 +49,8 @@ export default ({ category, seed, onGoBack }) => {
     let p = '';
     for (let i = 0; i < typedWord.length; i++) {
       const char = typedWord.charAt(i);
-      if (word.charAt(i) === char) {
-        p += char;
+      if (word.toLowerCase().charAt(i) === char.toLowerCase()) {
+        p += char.toLowerCase();
       } else break;
     }
 
@@ -58,7 +58,7 @@ export default ({ category, seed, onGoBack }) => {
     setProgress(p);
     setRemainder(r);
 
-    if (word === typedWord) {
+    if (word.toLowerCase() === typedWord.toLowerCase()) {
       setScore(score + 1);
       setTypedWord('');
       setWord(words[(score + 1) % words.length]);
