@@ -18,7 +18,7 @@ export default () => {
 
   const play = (category, seed) => {
     setCategory(category);
-    setSeed(seed);
+    setSeed(seed.toString().toLowerCase());
     setGameState('game');
   };
 
