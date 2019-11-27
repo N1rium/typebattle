@@ -21,7 +21,6 @@ export const getCategories = () => Object.keys(map);
 
 export const getWordSequence = (category = 'random', length = 50, random = null) => {
   if (random) {
-    console.warn('rng', random);
     rng = new seedrandom(random);
   }
   return shuffle(category === 'random' ? [...allWords] : map[category])
