@@ -28,7 +28,6 @@ const Input = styled.input.attrs(props => ({
   padding: 5px 10px;
   font-size: 1.25em;
   opacity: 1;
-  transition: all 0.25s ease-in-out;
 `;
 
 export default ({ onPlay }) => {
