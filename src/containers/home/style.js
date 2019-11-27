@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { Input as StyledInput } from '../../components';
 
 const SlideFadeInFromBelow = keyframes`
   0% {
@@ -42,23 +43,12 @@ const Word = styled.span`
 
 const Remainder = styled.span``;
 
-const Input = styled.input.attrs(props => ({
+const Input = styled(StyledInput).attrs(props => ({
   id: 'input',
   type: 'text',
   className: `${props.gameOver && 'highlighted'}`,
   autoComplete: 'off',
 }))`
-  text-align: center;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  outline: 0;
-  color: #fff;
-  font-family: 'Bungee', cursive;
-  border-bottom: 1px solid #fff;
-  padding: 5px 10px;
-  font-size: 1.25em;
-  opacity: 1;
   transition: all 0.25s ease-in-out;
   &.highlighted {
     transform: translateY(100%);

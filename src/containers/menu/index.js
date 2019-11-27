@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { Button, ItemSelector } from '../../components';
+import { Button, ItemSelector, Input as StyledInput } from '../../components';
 import { getCategories } from '../../wordbank/index';
 import { Game, Letter, NameContainer, Name, Version } from './style';
 
@@ -14,21 +14,9 @@ const Title = styled.div`
   color: var(--yellow);
 `;
 
-const Input = styled.input.attrs(props => ({
+const Input = styled(StyledInput).attrs(props => ({
   type: 'text',
-}))`
-  text-align: center;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  outline: 0;
-  color: #fff;
-  font-family: 'Bungee', cursive;
-  border-bottom: 1px solid #fff;
-  padding: 5px 10px;
-  font-size: 1.25em;
-  opacity: 1;
-`;
+}))``;
 
 export default ({ onPlay }) => {
   const [category, setCategory] = useState('random');
