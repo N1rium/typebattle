@@ -12,7 +12,6 @@ export default () => {
   const [seed, setSeed] = useState('');
 
   useEffect(() => {
-    console.log(Gloot);
     Gloot.onPlayMatch = () => play('dishes');
   }, []);
 
